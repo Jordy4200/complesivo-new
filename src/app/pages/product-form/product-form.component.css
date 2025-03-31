@@ -1,0 +1,63 @@
+/* Estilos para el formulario */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    padding: 1.2rem;
+    font-weight: 500;
+  }
+  
+  .form-design {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-control, .form-select {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.1);
+  }
+  
+  .input-group-text {
+    background-color: #f8f9fa;
+    border-color: #e0e0e0;
+  }
+  
+  .btn-submit {
+    padding: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Placeholders con estilo */
+  ::placeholder {
+    color: #adb5bd;
+    opacity: 1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .row.mb-3 > div {
+      margin-bottom: 1rem;
+    }
+  }

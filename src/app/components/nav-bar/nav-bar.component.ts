@@ -11,6 +11,8 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+ 
+
 
   constructor(private cartService: CartService, private authService: AuthService) { }
 
@@ -27,4 +29,6 @@ export class NavBarComponent {
       .then(() => console.log("Logout exitoso"))
       .catch(err => console.log(err));
   }
+
+  
 }

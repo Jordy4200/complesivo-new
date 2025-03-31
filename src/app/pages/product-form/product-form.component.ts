@@ -28,10 +28,6 @@ export class ProductFormComponent {
       image: [""],
       platform: ["", [Validators.required]],
       releaseYear: [new Date().getFullYear(), [Validators.required]],
-      rating: this.formBuilder.group({
-        rate: [0],
-        count: [0]
-      })
     });
   }
 
@@ -46,16 +42,37 @@ export class ProductFormComponent {
   }  
 
   addProduct(){
-    if(this.form.invalid) return;
+    if(this.form.invalid) {
+      alert('Por favor complete todos los campos requeridos');
+      return;
+    }
+    
     this.productsService.addProduct(this.form.value)
-      .then(() => this.router.navigate(["/products"]))
-      .catch(err => console.log(err));
+      .then(() => {
+        if(confirm('Producto agregado exitosamente. ¿Desea ver el listado de productos?')) {
+          this.router.navigate(["/products"]);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        alert('Error al agregar el producto');
+      });
   }
-
+  
   updateProduct(){
-    if(this.form.invalid) return;
+    if(this.form.invalid) {
+      alert('Por favor complete todos los campos requeridos');
+      return;
+    }
+    
     this.productsService.updateProduct({ id: this.id, ...this.form.value})
-      .then(() => this.router.navigate(["/products"]))
-      .catch(err => console.log(err));
+      .then(() => {
+        alert('Producto actualizado exitosamente');
+        this.router.navigate(["/products"]);
+      })
+      .catch(err => {
+        console.log(err);
+        alert('Error al actualizar el producto');
+      });
   }
 }

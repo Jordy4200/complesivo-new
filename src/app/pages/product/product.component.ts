@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Product } from '../../types/products';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductsService } from '../../services/products/products.service';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,NgFor,NgIf],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })

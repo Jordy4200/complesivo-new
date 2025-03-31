@@ -1,5 +1,5 @@
+// app.routes.ts
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductComponent } from './pages/product/product.component';
@@ -10,7 +10,7 @@ import { ProductFormComponent } from './pages/product-form/product-form.componen
 import { warningsGuard } from './guards/warnings/warnings.guard';
 
 export const routes: Routes = [
-    { path: 'home', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
     {
         path: 'products',
         component: ProductsComponent,
@@ -23,6 +23,6 @@ export const routes: Routes = [
     },
     { path: 'product-form/:id', component: ProductFormComponent, canDeactivate: [warningsGuard] },
     { path: 'login', component: LoginComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', component: NotFoundComponent }
 ];
