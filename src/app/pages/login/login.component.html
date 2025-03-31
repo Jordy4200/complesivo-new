@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="row">
+    <!-- Left Form Side -->
+    <div class="col-lg-6 d-flex align-items-center justify-content-center right-side">
+      <div class="form-2-wrapper">
+        <div class="logo text-center">
+          <h2><i class="bi bi-robot"></i></h2>
+          <h4>Eneba</h4>
+        </div>
+        <h2 class="text-center mb-4">
+          @if(showRegister) {
+            Regístrate
+          } @else {
+            Inicia Sesión
+          }
+        </h2>
+        
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <!-- Botón de Google -->
+          <div class="social-login mb-3">
+            <button type="button" class="btn btn-outline-secondary w-100 mb-3" (click)="registerWithGoogle()">
+              <i class="bi bi-google text-danger"></i> Iniciar con Google
+            </button>
+          </div>
+          
+          <div class="position-relative">
+            <hr class="text-secondary divider">
+            <div class="driver-content-center">
+              O
+            </div>
+          </div>
+          
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input formControlName="email" type="email" class="form-control" id="email">
+            @if((email?.hasError("required") || email?.hasError("email")) && email?.touched) {
+              <div class="text-danger mt-2">
+                Correo inválido
+              </div>
+            }
+          </div>
+          
+          <!-- Contraseña -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input formControlName="password" type="password" class="form-control" id="password">
+            @if(password?.hasError("required") && password?.touched) {
+              <div class="text-danger mt-2">
+                Contraseña requerida
+              </div>                
+            }
+            @if(password?.hasError("minlength") && password?.touched) {
+              <div class="text-danger mt-2">
+                La contraseña debe tener al menos 6 caracteres
+              </div>
+            }
+          </div>
+          
+          <!-- Confirmar Contraseña (solo en registro) -->
+          @if(showRegister) {
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+              <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword">
+              @if(confirmPassword?.hasError("confirmPassword") && confirmPassword?.touched) {
+                <div class="text-danger mt-2">
+                  Las contraseñas no coinciden
+                </div>
+              }
+            </div>
+          }
+          
+          <!-- Recordarme (solo en login) -->
+          @if(!showRegister) {
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">Recordarme</label>
+              </div>
+            </div>
+          }
+          
+          <!-- Botón de envío -->
+          <button type="submit" class="btn login-btn w-100 mb-3">
+            @if(showRegister) {
+              Registrarse
+            } @else {
+              Iniciar sesión
+            }
+          </button>
+        </form>
+        
+        <!-- Mensaje de error -->
+        @if(errorMessage) {
+          <div class="alert alert-danger rounded-0 mb-3">
+            {{errorMessage}}
+          </div>
+        }
+        
+        <!-- Enlace para cambiar entre login/registro -->
+        <p class="text-center register-test mt-3">
+          @if(showRegister) {
+            ¿Ya tienes una cuenta? 
+            <a class="text-decoration-none cursor-pointer" (click)="toggleRegister()">Inicia sesión</a>
+          } @else {
+            ¿No tienes una cuenta? 
+            <a class="text-decoration-none cursor-pointer" (click)="toggleRegister()">Regístrate</a>
+          }
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

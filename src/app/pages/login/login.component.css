@@ -1,0 +1,96 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url('https://png.pngtree.com/background/20230610/original/pngtree-gamer-with-headphones-wearing-a-purple-sweater-and-glasses-picture-image_3021442.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Jost', sans-serif;
+}
+
+.form-2-wrapper {
+  background: linear-gradient(90deg, rgba(251,240,255,1) 0%, rgba(247,221,251,0.35898109243697474) 49%, rgb(218 0 255 / 14%) 100%);
+  padding: 50px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.divider {
+  margin: 2rem 0;
+}
+
+.driver-content-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 10px;
+  background: linear-gradient(90deg, rgba(251,240,255,1) 0%, rgba(247,221,251,0.35898109243697474) 49%, rgb(218 0 255 / 8%) 100%);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #001770;
+}
+
+input.form-control {
+  padding: 11px;
+  border: none;
+  border: 2px solid #405c7cb8;
+  border-radius: 30px;
+  background-color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input.form-control:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+  background-color: transparent;
+}
+
+.form-check-input:checked {
+  background-color: #b400ff;
+  border: none;
+  outline: none;
+}
+
+button.login-btn {
+  background: #b400ff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+
+button.login-btn:hover {
+  background: #9c00d6;
+}
+
+.register-test a {
+  color: #000;
+  font-weight: 500;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.alert-danger {
+  background-color: #ffebee;
+  color: #c62828;
+  border: none;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 992px) {
+  .lefy-side {
+    display: none;
+  }
+  
+  .form-2-wrapper {
+    padding: 30px;
+  }
+}

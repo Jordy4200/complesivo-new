@@ -1,0 +1,41 @@
+<div class="container-fluid py-5" >
+    <div class="container">
+      <h1 class="text-center mb-4">Catalogo  VideoGames</h1>
+      
+      @if(role == "admin"){
+      <div class="text-center mb-4">
+        <button type="button" class="btn btn-primary" routerLink="/product-form/0">Agregar producto</button>
+      </div>
+      }
+      
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+        @for(product of products; track $index){
+        <div class="col">
+          <div class="card-producto h-100" (click)="goToProduct(product.id)">
+            <div class="card-img-container">
+              <img [src]="product.image" [alt]="product.title" class="card-img-producto">
+            </div>
+            <div class="card-body-producto p-3">
+              <h3 class="card-title-producto">{{product.title}}</h3>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="card-price">$ {{product.price.toFixed(2)}}</span>
+                <button class="btn-add-cart" (click)="addToCart($event, product)">
+                  <i class="bi bi-cart-plus"></i>
+                </button>
+              </div>
+              
+              @if(role == "admin"){
+              <div class="admin-buttons mt-2">
+                <div class="d-flex gap-2">
+                  <a [routerLink]="['/product-form', product.id]" class="btn btn-sm btn-success flex-grow-1">Editar</a>
+                  <a (click)="deleteProduct($event, product.id)" class="btn btn-sm btn-danger flex-grow-1">Eliminar</a>
+                </div>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,12 @@
+<main class="d-flex flex-column" style="min-height: 100vh;">
+  <app-nav-bar></app-nav-bar>
+  <div class="flex-grow-1 d-flex flex-column">
+    <div class="container p-2 flex-grow-1">
+      <router-outlet />
+    </div>
+    <app-footer></app-footer>
+  </div>
+  @if(isCartVisible()){
+    <app-cart></app-cart>
+  }
+</main>
